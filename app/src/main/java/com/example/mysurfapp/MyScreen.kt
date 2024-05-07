@@ -13,8 +13,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.PlatformTextStyle
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.em
 import androidx.compose.ui.unit.sp
 
 @Composable
@@ -48,9 +52,11 @@ fun MyScreen() {
                     // Title TextView
                     Text(
                         text = "THE PERFECT SPOTS",
+                        textAlign = TextAlign.Center,
+                        lineHeight = 1.em,
                         fontSize = 44.sp,
                         color = Color.White, // Custom text color
-                        modifier = Modifier.padding(top = 16.dp)
+                        modifier = Modifier.padding(top = 16.dp),
                     )
 
                     // Start Button
