@@ -20,9 +20,13 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.em
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 
 @Composable
-fun MyScreen() {
+fun MyScreen(navController: NavController) {
     MaterialTheme {
         Box(
             modifier = Modifier.fillMaxSize(),
@@ -62,6 +66,7 @@ fun MyScreen() {
                     // Start Button
                     Button(
                         onClick = {
+                            navController.navigate("surf_spots")
                             // Todo: Handle button click (e.g., navigation or action)
                         },
                         modifier = Modifier.padding(top = 16.dp)
@@ -77,5 +82,10 @@ fun MyScreen() {
 @Preview
 @Composable
 fun PreviewMyScreen() {
-    MyScreen()
+    val navController = rememberNavController()
+    NavHost(navController, startDestination = "home") {
+        composable("home") {
+            MyScreen(navController)
+        }
+    }
 }
